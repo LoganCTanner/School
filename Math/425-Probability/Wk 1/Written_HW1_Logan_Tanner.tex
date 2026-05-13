@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\alph*)}
+\setlist[enumerate,3]{label=\roman*.}
+
+\title{Written HW1}
+\author{Logan Tanner}
+\date{May 11, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    \item Review of multinomial coefficients and multinomial theorem
+
+        \begin{enumerate}
+            \item List all nonzero multinomial coefficients for $n = r = 3$ along with their values
+
+                Answer:
+                \begin{itemize}
+                    \item $(3,0,0), (0,3,0), (0,0,3)$
+                    \item $(2,1,0), (2,0,1), (1,2,0), (0,2,1), (1,0,2), (0,1,2)$
+                    \item $(1,1,1)$
+                \end{itemize}
+                and
+                \begin{itemize} 
+                    \item $\frac{3!}{3!0!0!}=1,\frac{3!}{0!3!0!}=1,\frac{3!}{0!0!3!}=1$ 
+                    \item $\frac{3!}{2!1!0!} = 3,\frac{3!}{2!0!1!} = 3,\frac{3!}{1!2!0!} = 3,\frac{3!}{0!2!1!} = 3,\frac{3!}{1!0!2!} = 3,\frac{3!}{0!1!2!} = 3$
+                    \item $\frac{3!}{1!1!1!} = 6$
+                \end{itemize}
+
+            \item verify the multinomial theorem when $n = r = 3$ by writing $(x + y + z)^3$ as $(x + y + z)(x + y + z)(x + y + z)$ and using a counting argument to think about what terms would end up in the expansion. 
+
+                Answer: 
+                Taking the case $x^3$, it is only achieved by one possible arrangement, $xxx$. However, the case $x^2y$ has the possible arrangements $xxy$, $xyx$, and $yxx$, for $\frac{3!}{2!1!0!} = 3$ possible arrangements. Similarly, creating $xyz$ can be done $xyz$, $xzy$, $yxz$, $yzx$, $zxy$, and $zyx$, for $\frac{3!}{1!1!1!}=6$ possible arrangements. Each of these cases matches the formula of $\frac{3!}{r_1!r_2!r_3!}$ for instances of $x^{r_1}y^{r_2}z^{r_3}$.
+
+            \item What's the sum of the multinomial coefficients listed in (a)? Describe a way to find this sum without having to add up all the numbers you found in (a).
+
+                Answer: 
+                $$ 1 \times 3 + 3 \times 6 + 6 \times 1 = 27 $$
+                And, this may be thought of as a sequence of three possible items in three possible positions, that is to say $x$, $y$, or $z$ in the first, second or third positions, which would then be a simpler calculation of $3^3=27$ possible arrangements.
+
+        \end{enumerate}
+
+    \clearpage
+
+    \item In an experiment, a fair d6 is rolled continually until a 1 appears, at which point the experiment stops.
+
+        \begin{enumerate}
+            \item Describe a reasonable sample space for this experiment.
+
+                Answer:
+                The sample space would be the set of all possible sequences of integers one through six that only has a single one in the terminal position. I.e. $\{(1), (2,1), \ldots, (6,1), (2,2,1),\ldots\}$
+
+
+            \item Let $E_n$ be the event that it takes $n$ rolls to complete the experiment. How many outcomes of your sample space are in $E_1$? $E_2$? $E_3$? $E_n$?
+
+                Answer:
+                \begin{itemize}
+                    \item In $E_1$ there is one outcome, because only a one may be rolled and the experiment stops.
+                    \item In $E_2$ there are five possible outcomes for the first roll, being $\{2,3,4,5,6\}$, or alternatively written $E_1^C$, and must terminate in a one for all outcomes, i.e. $\{ (2,1), (3,1), \ldots, (6,1) \}$, so a total of $|E_2| = |E_1^C| = 5$ possible outcomes.
+                    \item For $E_3$ there are still five possible outcomes for the first roll, but now five possible outcomes for the second roll as well, while still terminating in a one. Thus, there are $|E_1^C| \times |E_1^C| = 5 \times 5 = 25$ possible outcomes.
+                \item It follows that for $E_n$ there are $n - 1$ rolls where there is not a one in the sequence until it terminates with a one, resulting in $|E_1^C|_1 \times |E_1^C|_2 \times \cdots \times |E_1^C|_{n-1} = |E_1^C|^{n-1}$ permutations.
+                \end{itemize}
+
+            \item Describe the following events practically, in terms of the experiment:
+                \begin{enumerate}
+                    \item $E_1 \cup E_2$
+
+                        Answer:
+                        All events where either 1 is rolled first or second.
+
+                    \item $E_1 \cap E_2$
+
+                        Answer:
+                        The null set, because they are disjoint since the experiment can not end at both the first and second rolls in the same trial of the experiment.
+
+                    \item $\bigcup_{n=3}^{\infty} E_n$
+
+                        Answer:
+                        All events where 3 or more rolls occur in the experiment.
+
+                    \item $\bigcup_{n=1}^{\infty} E_n$
+
+                        Answer:
+                        All events where an even number of rolls occur in the experiment.
+
+                \end{enumerate}
+        \end{enumerate}
+
+    \clearpage
+
+    \item Let $E$, $F$, and $G$ be three events. Provide a strong argument, using the axioms of probability, that the following is true:
+        $$ P(EFG^C \cup EGF^C) = P(EF) + P(EG) - 2P(EFG) $$
+    
+        \begin{proof}
+            It is desired to be shown that $P(EFG^C \cup EGF^C) = P(EF) + P(EG) - 2P(EFG)$. By the definition of disjoint sets, the sets $EFG^C$ and $EGF^C$ must be disjoint since the former requires all elements in sets E and F but not in G, and the latter requiring all elements in E and G but not in F. By the additivity axiom for disjoint sets, $$P(EFG^C \cup EGF^C) = P(EFG^C) + P(EGF^C) $$ $$ = P(EF) - P(EFG) + P(EG) - P(EFG) $$ $$ = P(EF) + P(EG) - 2P(EFG)$$
+        \end{proof}
+
+    \clearpage
+
+    \item A recent survey by a local grocery store asked 1000 consumers whether in the last three months, they had shopped in-person ($I$), by curbside pickup ($C$), or by delivery ($D$). They reported that $I = 312$, $C = 470$, and $D = 525$; that $ID = 42$, $CD = 147$, and $IC = 86$; and that $ICD = 25$. Show that this data must be incorrect.
+
+        Answer:
+        By using the inclusion exclusion principle it is possible to achieve the total number of respondents according to the individual sets and their intersections. It follows that 
+        $$
+            |I| + |C| + |D| - |IC| - |ID| - |CD| + |ICD|
+        $$
+        $$
+            = 312 + 470 + 525 - 86 - 42 - 147 + 25
+        $$
+        $$
+            = 1057 \neq 1000
+        $$
+
+    \clearpage
+
+    \item A chessboard is an $8 \times 8$ grid. A rook can move to any square in the same row or column as its current location; if the rook moves to a square occupied by another piece, it captures it. If four rooks are placed at random on the chessboard, what is the probability that none of them can capture any of the others in a single move?
+
+        Answer:
+        The first rook can take any space out of the $8 \times 8 = 64$ available spaces. However, for the second rook, there is one less rank and file to choose from, giving it $7 \times 7 = 49$ possible locations. Similarly $6 \times 6 = 36$ and $5 \times 5 = 25$ for the third and fourth rooks, respectively. It follows that there is then $64*49*36*25 = 2,822,400$ possible sets of board locations that meet the criteria, and $64*63*62*61=15,249,024$ possible sets of four locations regardless if the criteria is met. This gives a probability of $\frac{2,822,400}{15,249,024} = \frac{350}{1,891}$ of the event where no rook may capture another when four rooks are randomly placed on a chess board.
+        
+\end{enumerate}
+
+\end{document}
