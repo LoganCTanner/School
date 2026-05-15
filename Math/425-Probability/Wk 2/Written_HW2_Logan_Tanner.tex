@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\alph*)}
+\setlist[enumerate,3]{label=\roman*.}
+
+\title{Written HW1}
+\author{Logan Tanner \\ I use Neovim (BTW)}
+\date{May 15, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \clearpage
+    \item Suppose that we have 10 coins, which are weighted so that when flipped the $i$th coin shows heads with probability $p = i/10$ ($i = 1, \ldots,10$).
+    \begin{enumerate}
+        \item If we randomly select a coin, flip it, and get heads, what is the probability that it is the 3rd coin?
+
+        \item What is the probability that it is the $i$th coin?
+    \end{enumerate}
+    
+    \clearpage
+    \item It is important to consdier blood type for both the recipient and donor for any blood transfusion: AB recipients can receive blood of any type, and type A or B recipients can receive blood of their own type or type O, but type O can only receive O type blood. Given that the percentages of type O, A, B, and AB in the population are 34\%, 38\%, 20\%, and 8\% respectively, find the probability that a random donor can give blood to a random recipient. 
+
+    \clearpage
+    \item  Let $E_1$, $E_2$, and $F$ be events, with $P(F) > 0$. Use the definition of conditional probability along with other results form class to show that Property 3 also holds for conditional probabilities. That is, show that 
+        $$ P(E_1 \cup E_2 | F) = P(E_1|F) + P(E_2|F) - P(E_1 \cap E_2)|F) $$
+
+    \clearpage
+    \item Consider rolling two fair dice repeatedly either a roll sums to 6, or a 2 is rolled (on one or both dice). In class, we computed that the probability that a roll sums to 6 strictly before any 2s are rolled is $\frac{3}{14}$.
+        \begin{enumerate}
+            \item Find the probability that a 2 is rolled strictly before a roll sums to 6.
+            
+            \item What is the third possibility? What is its probability?
+        \end{enumerate}
+
+    \clearpage
+    \item   You're on a game show! There are three doors labeled $A$, $B$, and $C$. A new car is behind one of the three doors, but you don't know which one. You select one of the door, say, door $A$. The host then opens one of doors $B$ or $C$, as follows: if the car is behind door $B$, then he opens door $C$; if the car is behind door $C$, then he opens door $B$; and if the car is behind door $A$, then he opens wither door $B$ or $C$ with probability $\frac{1}{2}$ each. (In all cases, the door opened by the host will  not have the car behind it.)
+
+    The host then gives you the choice of either sticking with door $A$, or switching to the remaining unopened door. You win the car if and only if it is behind your final door selection. Without loss of generality, we assume that the host opens door B.
+
+
+    \begin{enumerate}
+        \item If you stick with your original choice (i.e., door $A$), conditiond on the host having opened door $B$, then what is your probability of winning?
+        \item If you switched to the remaining door (i.e., door $C$), conditioned on the host having opened door $B$, then what is your probability of winning?
+        \item Supposed we change the rules so that, if you originally chose door $A$ and the car was indeed behind door $A$, then the host always opens door $B$. Do the answers to questions 1 and 2 change?
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
