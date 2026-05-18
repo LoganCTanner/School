@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{hyperref}
 
 \usepackage{enumitem}
 \setlist[enumerate,1]{label=\arabic*.}
@@ -10,7 +11,13 @@
 \setlist[enumerate,3]{label=\roman*.}
 
 \title{Written HW1}
-\author{Logan Tanner \\ I use Neovim (BTW)}
+\author{
+    Logan Tanner \\ 
+    I use Neovim (BTW) \\ 
+    \\
+    Full HW repository at \\
+    \href{https://github.com/LoganCTanner/School/tree/main/Math/425-Probability}{github.com/LoganCTanner/School}
+}
 \date{May 15, 2026}
 
 \begin{document}
@@ -22,7 +29,7 @@
         \\
         Setup:
         $$ P(C_i) = \text{probability of the $i^\text{th}$ coin being flipped}  = \frac{1}{10} $$
-        $$ P(H) = \text{probaility of a Head being flipped} $$
+        $$ P(H) = \text{probability of a Head being flipped} $$
     \begin{enumerate}
         \item If we randomly select a coin, flip it, and get heads, what is the probability that it is the 3rd coin?
         \\
@@ -39,20 +46,73 @@
     \end{enumerate}
     
     \clearpage
-    \item It is important to consdier blood type for both the recipient and donor for any blood transfusion: AB recipients can receive blood of any type, and type A or B recipients can receive blood of their own type or type O, but type O can only receive O type blood. Given that the percentages of type O, A, B, and AB in the population are 34\%, 38\%, 20\%, and 8\% respectively, find the probability that a random donor can give blood to a random recipient. 
+    \item It is important to consider blood type for both the recipient and donor for any blood transfusion: AB recipients can receive blood of any type, and type A or B recipients can receive blood of their own type or type O, but type O can only receive O type blood. Given that the percentages of type O, A, B, and AB in the population are 34\%, 38\%, 20\%, and 8\% respectively, find the probability that a random donor can give blood to a random recipient. 
 
-        \\
         Answer:
+        \begin{flalign*} 
+            & P(\text{random valid recipient} | \text{random donor}) = && \\
+            & P(AB) \times P(AB \cup A \cup B \cup O | AB) + && \\ 
+            & P(A) \times P(A \cup O | A) + && \\
+            & P(B) \times P(B \cup O | B) + \\
+            & P(O) \times P(O | O)
+        \end{flalign*}
+        Since donors and recipients are independent events, it follows that
+        \begin{flalign*}
+            & P(AB \cup A \cup B \cup O | AB) = \Sigma P(\text{blood type}) = .08 + .38 + .2 + .34 = 1 && \\
+            & P(A \cup O | A) = P(A) + P(O) = .38 + .34 = .72 && \\
+            & P(B \cup O | B) = P(B) + P(O) = .20 + .34 = .54 && \\
+            & P(O | O) = P(O) = .08 && \\
+        \end{flalign*}
+        Resulting in
+        $$
+            P(\text{random valid donor} | \text{random recipient})
+        $$
+        $$
+            = .08 \times 1 + .38 \times .72 + .20 \times .54 + .34 \times .34
+        $$
+        $$
+            = 0.5772
+        $$
     \clearpage
-    \item  Let $E_1$, $E_2$, and $F$ be events, with $P(F) > 0$. Use the definition of conditional probability along with other results form class to show that Property 3 also holds for conditional probabilities. That is, show that 
+    \item  Let $E_1$, $E_2$, and $F$ be events, with $P(F) > 0$. Use the definition of conditional probability along with other results from class to show that Property 3 also holds for conditional probabilities. That is, show that 
         $$ P(E_1 \cup E_2 | F) = P(E_1|F) + P(E_2|F) - P(E_1 \cap E_2)|F) $$
+        
+        Answer:
+        \begin{proof}
+            It is desired to be shown that $P(E_1 \cup E_2 | F) = P(E_1 | F) + P(E_2 | F) - P(E_1 \cap E_2 | F)$. \\
+            Given the definition of conditional probability, and the distributive property of set operations, one can obtain
+            \begin{flalign*}
+                & P(E_1 \cup E_2 | F) =  && \\
+                & \frac{P([E_1 \cup E_2] \cap F)}{P(F)} = && \\
+                & \frac{P([E_1 \cap F] \cup [E_2 \cap F])}{P(F)} && \\
+            \end{flalign*}
+            Then, by the inclusion-exclusion principle, it follows that
+            \begin{flalign*}
+                & \frac{P([E_1 \cap F] \cup [E_2 \cap F])}{P(F)} = && \\
+                & \frac{P(E_1 \cap F) + P(E_2 \cap F) - P(E_1 \cap E_2 \cap F)}{P(F)} = && \\
+                & \frac{P(E_1 \cap F)}{P(F)} + \frac{P(E_2 \cap F)}{P(F)} - \frac{P([E_1 \cap E_2] \cap F)}{P(F)} = && \\
+                & P(E_1 | F) + P(E_2 | F) - P(E_1 \cap E_2 | F) &&
+            \end{flalign*}
+        \end{proof}
 
     \clearpage
     \item Consider rolling two fair dice repeatedly either a roll sums to 6, or a 2 is rolled (on one or both dice). In class, we computed that the probability that a roll sums to 6 strictly before any 2s are rolled is $\frac{3}{14}$.
         \begin{enumerate}
             \item Find the probability that a 2 is rolled strictly before a roll sums to 6.
             
+                Setup: \\
+                $ E = \{ (2,1),\ldots,(2,6), (1,2), (3,2), \ldots, (6,2) \}/\{(2,4),(4,2)\} $ \\
+                $ |E| = 9 $ \\
+                $ F = \{(1,5),(5,1),(2,4), (4,2), (3,3) \} \Rightarrow |F| = 5$
+                \\ Answer: \\
+                $ \frac{\frac{9}{36}}{\frac{9}{36} + \frac{5}{36}} = \frac{9}{36} \times \frac{36}{14} = \boxed{\frac{9}{14}} $
             \item What is the third possibility? What is its probability?
+                Answer: \\
+                \fbox{\parbox{0.84\textwidth}{The third possibility would be the case where the sum of faces is 6 \\ and a 2 is present on one of the dice.}} \\
+                In this case we have a stopping case of
+                $$ E = \{ (2,4), (4,2) \} \Rightarrow |E| = 2 $$ 
+                With a probability of 
+                $$ \boxed{\frac{2}{36}} $$
         \end{enumerate}
 
     \clearpage
@@ -60,11 +120,42 @@
 
     The host then gives you the choice of either sticking with door $A$, or switching to the remaining unopened door. You win the car if and only if it is behind your final door selection. Without loss of generality, we assume that the host opens door B.
 
-
+    Setup: \\
+    $ X,Y \in \{A,B,C\}$\\
+    $ W_X = \text{Car behind door X}$\\
+    $ I_X = \text{Initial choice of door X} $\\
+    $ R_X = \text{Host reveals goat behind door X}$ \\
+    $ P(I_X \cap W_Y) = P(I_X) \times P(W_Y | I_X) = P(I_X) \times P(W_Y) = \frac{1}{3} \times \frac{1}{3} = \frac{1}{9}$
     \begin{enumerate}
-        \item If you stick with your original choice (i.e., door $A$), conditiond on the host having opened door $B$, then what is your probability of winning?
+        \item If you stick with your original choice (i.e., door $A$), conditioned on the host having opened door $B$, then what is your probability of winning?
+            \\ Answer: \\
+            $ P(W_A | I_A \cap R_B) = \frac{P(W_A \cap I_A \cap R_B)}{P(I_A \cap R_B)}$ \\
+            $ P(W_A \cap I_A \cap R_B) = P(W_A \cap I_A) \times P(R_B | I_A \cap W_A) $ \\
+            $ P(R_B | I_A \cap W_A) = \frac{1}{2}$ \\
+            $ P(W_A \cap I_A) = P(I_A) \times P(W_A | I_A) = P(I_A) \times P(W_A) = \frac{1}{9} $ \\
+            $ P(W_A \cap I_A \cap R_B) = \frac{1}{9} \times \frac{1}{2} = \frac{1}{18} $ \\
+            $ P(I_A \cap R_B) = \Sigma_{X \in \{A,B,C\}} P(R_B \cap I_A \cap W_X) $ \\
+            $ P(R_B \cap I_A \cap W_B) = P(I_A \cap W_B) \times P(R_B | I_A \cap W_B) = \frac{1}{9} \times 0 = 0 $ \\
+            $ P(R_B \cap I_A \cap W_C) = P(I_A \cap W_C) \times P(R_B | I_A \cap W_C) = \frac{1}{9} \times 1 = \frac{1}{9}$ \\
+            $ P(R_B \cap I_A) = \frac{1}{18} + 0 + \frac{1}{9} = \frac{3}{18} = \frac{1}{6} $ \\
+            $ \frac{P(W_A \cap I_A \cap R_B)}{I_A \cap R_B)} = \frac{\frac{1}{18}}{\frac{1}{6}} = \boxed{\frac{1}{3}} $
+
+        \clearpage
         \item If you switched to the remaining door (i.e., door $C$), conditioned on the host having opened door $B$, then what is your probability of winning?
+            \\ Answer: \\
+            Given our previous solution of $ P(W_A | I_A \cap R_B) = \frac{1}{3} $, and the mutual exclusivity of events $W_X$, we can then consider $W_C$ as the compliment of $W_A$ given door B has been revealed as not having the car, with the probability then being 
+            $$ P(W_C | I_A \cap R_B) = 1 - P(W_A | I_A \cap R_B) = \boxed{\frac{2}{3}} $$
+        \clearpage
         \item Supposed we change the rules so that, if you originally chose door $A$ and the car was indeed behind door $A$, then the host always opens door $B$. Do the answers to questions 1 and 2 change?
+            \\ Answer: \\
+            Given this change, we can substitute 
+            $$ P(W_A \cap I_A \cap R_B) = \frac{1}{9} \times 1 = \frac{1}{9} $$ 
+            and
+            $$ P(I_A \cap R_B) = \frac{1}{9} + 0 + \frac{1}{9} = \frac{2}{9} $$
+            resulting in
+            $$ P(W_A | I_A \cap R_B) = \frac{\frac{1}{9}}{\frac{2}{9}} = \boxed{\frac{1}{2}} $$
+            \fbox{\parbox{0.84\textwidth}{
+            So, the answers to questions 1 and 2 would both become $\frac{1}{2}$, and the player would not gain any advantage in deciding to choose the other remaining door.}}
     \end{enumerate}
 \end{enumerate}
 
