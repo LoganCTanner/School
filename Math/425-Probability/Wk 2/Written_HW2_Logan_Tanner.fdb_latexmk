@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1779141854.38454 "Written_HW2_Logan_Tanner.tex" "Written_HW2_Logan_Tanner.pdf" "Written_HW2_Logan_Tanner" 1779141854.54037 0
+["pdflatex"] 1779142144.84989 "Written_HW2_Logan_Tanner.tex" "Written_HW2_Logan_Tanner.pdf" "Written_HW2_Logan_Tanner" 1779142145.00401 0
   "/etc/texmf/web2c/texmf.cnf" 1778464018.33517 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -76,9 +76,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778464026 128227 ed67923a37f7748d267799454bc1f95b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778464043 2236308 4be549b31bfc92854c98efd72b017454 ""
-  "Written_HW2_Logan_Tanner.aux" 1779141854.51634 162 8041607b76d73e3dcbdb7e912bad98fd "pdflatex"
-  "Written_HW2_Logan_Tanner.out" 1779141854.49634 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Written_HW2_Logan_Tanner.tex" 1779141853.76034 9606 4a015a845d0f5b915028e29d830c46ad ""
+  "Written_HW2_Logan_Tanner.aux" 1779142144.98028 162 8041607b76d73e3dcbdb7e912bad98fd "pdflatex"
+  "Written_HW2_Logan_Tanner.out" 1779142144.96028 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Written_HW2_Logan_Tanner.tex" 1779142144.34828 9606 97d169185966b15d8b0607c5f9229cc8 ""
   (generated)
   "Written_HW2_Logan_Tanner.aux"
   "Written_HW2_Logan_Tanner.log"
