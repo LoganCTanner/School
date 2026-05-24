@@ -1,0 +1,151 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=4,
+    columns=flexible,
+    keepspaces=true,
+    basewidth=0.5em
+}
+
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\alph*)}
+\setlist[enumerate,3]{label=\roman*.}
+
+\title{Written HW3}
+\author{
+    Logan Tanner \\ 
+    I use Neovim (BTW) \\ 
+    \\
+    Full HW repository at \\
+    \href{https://github.com/LoganCTanner/School/tree/main/Math/425-Probability}{github.com/LoganCTanner/School}
+}
+\date{May 15, 2026}
+
+\begin{document}
+\maketitle
+
+\clearpage
+\begin{enumerate}
+
+    \item   Suppose the number of times a person contracts a cold in a given year is a Poisson with $\lambda$ = 5.
+            Also Suppose a new wonder drug has just been marketed that reduces the Poisson parameter to $\lambda$ = 3
+            for 75\% of the population; for the other 25\%, the drug has no effect. If an individual tries the drug 
+            for a year, and gets 2 colds during that time, what is the probability that the drug is beneficial for 
+            this individual?
+
+            
+            Answer:\\
+            To find the probability that the drug is beneficial for this individual we may use Bayes' Theorem to find
+            the likelihood that that they are in the group of individuals where the 
+            poisson distribution is given by $\lambda$ = 3.\\
+            $ P(\lambda = 3 | \text{drug}) = .75\text{, } P(\lambda = 5 | \text{drug}) = .25$\\
+            $ P(\lambda = 3 | k = 2) = \frac{P(\lambda = 3)P(k=2 | \lambda=3)}{P(k = 2)} $
+            $$ P(k = 2) = P(\lambda = 3)P(k=2 | \lambda=3) + P(\lambda=5)P(k = 2 | \lambda=5) $$
+            $$ = .75\left(e^{-3}\frac{3^2}{2!}\right) + .25\left(e^{-5}\frac{5^2}{2!}\right) $$
+            $$ \approx .75\times.224042 + .25\times.0842243 $$
+            $$ \approx .189088 $$
+            $$ P(\lambda = 3 | k = 2) \approx \frac{.75 \times .224042}{.189088} $$
+            $$ \approx \fbox{.888641} $$
+
+    \clearpage
+    \item   An Interviewer is given a list of people she can interview. She will conduct at most 5 interviews, 
+            and each person independently agrees to be interviewed with probability $\frac{2}{3}$.
+            
+            \begin{enumerate}
+                \item   If the list has 5 people on it, what's the probability that she gets five interviews?
+                        \\Answer: \\
+                        This question follows the format of a Binomial Distribution Probability for the simplest case 
+                        where $k = n$ \\
+                        $ X \sim Binomial(5,\frac{2}{3}) $\\
+                        $ P(X=5) = \binom{5}{5} \times \left(\frac{2}{3}\right)^{5} \times \left(\frac{1}{3}\right)^{0} $
+                        $$ = \framebox{ $\frac{32}{243}$} $$
+                \item   What if the list has 8 people on it?
+                        \\Answer: \\
+                        The question remains to be a binomial, though now with $ 0 < k < n$, resulting in\\
+                        $ X \sim Binomial(8,\frac{2}{3}) $\\
+                        $ P(X=5) = \binom{8}{5} \times \left(\frac{2}{3}\right)^{5} \times \left(\frac{1}{3}\right)^{3} $
+                        $$ = \framebox{ $\frac{1792}{6561}$} $$
+                \clearpage
+                \item   If the list has 8 people on it, and she begins at the top, 
+                        what is the probability that she interviews the 7th person?
+                        \\Answer:\\
+                        In this case there are 6 possible people preceding the 7th interviewee 
+                        $ X \sim Binomial(6,\frac{2}{3}) $
+                        $$ P(\text{7th person interviewed}) = \frac{2}{3} \times \Sigma_{i=0}^{4}P(X=i) $$
+                        $$ P(X=i) = \binom{6}{i} \times \left(\frac{2}{3}\right)^i \times \left(\frac{1}{3}\right)^{6-i} $$
+                        $$  \Sigma_{i=0}^{4} P(X=i) = $$ 
+                        $$ \binom{6}{0} \times \left(\frac{2}{3}\right)^0 \times \left(\frac{1}{3}\right)^6 $$
+                        $$  + \binom{6}{1} \times \left(\frac{2}{3}\right)^1 \times \left(\frac{1}{3}\right)^5 $$
+                        $$  + \binom{6}{2} \times \left(\frac{2}{3}\right)^2 \times \left(\frac{1}{3}\right)^4 $$
+                        $$  + \binom{6}{3} \times \left(\frac{2}{3}\right)^3 \times \left(\frac{1}{3}\right)^3 $$
+                        $$  + \binom{6}{4} \times \left(\frac{2}{3}\right)^4 \times \left(\frac{1}{3}\right)^2 $$
+                        $$ = \frac{1}{3^6} + \frac{6\times2}{3^6} + \frac{15\times2^2}{3^6} + \frac{20 \times 2^3}{3^6} + \frac{15\times 2^4}{3^6} $$
+                        $$ = \frac{473}{729} $$
+                        $$ P(\text{7th person interviewed}) = \frac{2}{3} \times \frac{473}{729} = \fbox{$ \frac{946}{2187} $} \approx 0.432556 $$
+                        To verify, I ran the following Python script, which returned $0.433336$
+                        \clearpage
+                        \begin{lstlisting}
+import random
+
+count = 0
+trials = 1000000
+
+for _ in range(trials):
+    interviews = 0
+    
+    # Go through persons 1-6
+    for person in range(1, 7):
+        if random.random() < 2/3:  # Person says yes
+            interviews += 1
+            if interviews == 5:  # Hit the limit
+                break
+    
+    # Check if we can reach person 7
+    if interviews < 5:
+        # Ask person 7
+        if random.random() < 2/3:  # Person 7 says yes
+            count += 1
+
+probability = count / trials
+print(f"P(interviews person 7) = {probability}")
+                        \end{lstlisting}
+                \clearpage
+                \item   As in part (c), what is the probability she interviews the 8th person?
+                    \\Answer:\\
+                    Like in (c), we are looking for the probability where the $j^{\text{th}}$ positioned
+                    potential interviewee is interviewed, where now $j = 8$.
+                    We can then substitute in $j - 1= 7$ for the number of preceding potential interviewees
+                    and recalculate to find:\\
+                    $ X \sim Binomial(7,\frac{2}{3}) $\\
+                    $ P(\text{8th person interviewed}) = \frac{2}{3} \times \Sigma_{i=0}^{4}P(X=i) $\\
+                    $ P(X=i) = \binom{7}{i} \times \left(\frac{2}{3}\right)^i \times \left(\frac{1}{3}\right)^{7-i} $\\
+                    $ \Rightarrow P(\text{8th person interviewed}) = \fbox{$\frac{1878}{6561}$} \approx 0.28624 $ \\
+                    Then, modifying the previous Python script to be range(1,8) on line 10 and recomputing, 
+                    the approximation verifies with a result of 0.285745
+
+
+    
+            \end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
