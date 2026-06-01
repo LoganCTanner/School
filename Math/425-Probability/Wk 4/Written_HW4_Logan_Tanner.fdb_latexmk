@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1780336958.35988 "Written_HW4_Logan_Tanner.tex" "Written_HW4_Logan_Tanner.pdf" "Written_HW4_Logan_Tanner" 1780336958.54869 0
+["pdflatex"] 1780340047.00377 "Written_HW4_Logan_Tanner.tex" "Written_HW4_Logan_Tanner.pdf" "Written_HW4_Logan_Tanner" 1780340047.19742 0
   "/etc/texmf/web2c/texmf.cnf" 1778464018.33517 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -30,8 +30,10 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1248133631 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -86,9 +88,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778464026 128227 ed67923a37f7748d267799454bc1f95b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778464043 2236308 4be549b31bfc92854c98efd72b017454 ""
-  "Written_HW4_Logan_Tanner.aux" 1780336958.51927 162 f042405b684a8c860cba07045d113040 "pdflatex"
-  "Written_HW4_Logan_Tanner.out" 1780336958.49927 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Written_HW4_Logan_Tanner.tex" 1780336958.15927 8802 d7784f5e92535d9632305b5f3540bb0b ""
+  "Written_HW4_Logan_Tanner.aux" 1780340047.16894 162 f042405b684a8c860cba07045d113040 "pdflatex"
+  "Written_HW4_Logan_Tanner.out" 1780340047.14894 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Written_HW4_Logan_Tanner.tex" 1780340046.52494 10378 6a0762dca8c511a186545bcc65253488 ""
   (generated)
   "Written_HW4_Logan_Tanner.aux"
   "Written_HW4_Logan_Tanner.log"

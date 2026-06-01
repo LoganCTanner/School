@@ -49,12 +49,15 @@
         \begin{enumerate}
 
             \item   $P\{|X - \mu | \leq \sigma\}$
-                \\Answer:\\
-                $ P\{|X - \mu | \leq \sigma\} = P\{-\sigma \leq X - \mu \leq \sigma\} $\\
-                $ = P\{-1 \leq \frac{X - \mu}{\sigma} \leq 1\} = P\{\frac{X - \mu}{\sigma} \leq 1\} - \left( 1 - P\{\frac{X - \mu}{\sigma} \leq 1\}\right)$ \\
-                $ = 2P\{\frac{X - \mu}{\sigma} \leq 1\} - 1$ \\
-                Then, by the table of values provided for a standard normal curve, \\
-                $ = 1.6826 - 1 = \fbox{0.6826}$
+                \\Answer:
+                \begin{align*}
+                    P\{|X - \mu | \leq \sigma\} &= P\{-\sigma \leq X - \mu \leq \sigma\} \\
+                    &= P\{-1 \leq \frac{X - \mu}{\sigma} \leq 1\} \\
+                    &= P\{\frac{X - \mu}{\sigma} \leq 1\} - \left( 1 - P\{\frac{X - \mu}{\sigma} \leq 1\}\right) \\
+                    &= 2P\{\frac{X - \mu}{\sigma} \leq 1\} - 1 \\
+                    &= 1.6826 - 1 = \fbox{0.6826}
+                \end{align*}
+                Given that $\frac{X-\mu}{\sigma} = Z \sim \text{normal}(0,1)$ and the values in the table provided.
             \item   $P\{|X - \mu | \leq 2\sigma\}$ \\
                 Answer:\\
                 It follows from part (a) that \\
@@ -62,6 +65,17 @@
             \item   $P\{|X - \mu | \leq 3\sigma\}$\\
                 Answer:\\
                 $ P\{|X - \mu | \leq 3\sigma\} = 2P\{\frac{X - \mu}{\sigma} \leq 3\} - 1 = \fbox{0.9974} $
+            \item   If you have data that you think follows a normal distribution, you can find the average to estimate $\mu$.
+                    The calculations in (a)-(c) can similarly be used to estimate $\sigma$. Explain how you would go
+                    about doing so.
+                    \\Answer:\\
+                    One can estimate the $\sigma$ values by assigning $Z$ values of 1, 2, or 3, and rearranging the 
+                    equation to obtain $\sigma = |\frac{X - \mu}{Z}|$, with the absolute value taken to account for 
+                    negative sigmas, and where $\mu$ is the median value of the data at the
+                    50\% mark and $X$ is the value obtained at the points deviating from the median by $\pm$ 34.14\%, 47.72\%,
+                    and 49.87\% for $\sigma$, $2\sigma$, and $3\sigma$ respectively. Each of these obtained sigmas may then be
+                    averaged, given by 
+                    $\sigma_{\text{avg}} = \frac{\sigma_{+1}+\sigma_{-1}+\sigma_{+2}+\sigma_{-2}+\sigma_{+3}+\sigma_{-3}}{6}$.
         \end{enumerate}
     \clearpage
     \item   Some time ago, a random sample of 747 obituaries published in Salt Lake City newspapers found that 46\% of 
@@ -72,17 +86,20 @@
                 Given the assumption that deaths are evenly distributed, it would follow that 25\% of deaths would occur
                 in the 3-month period following a birthday, given that would equate to 25\% of the calendar year.
             \item   Estimate the probability that 46\% or more of the decedents would die in the 3-month period following 
-                    their birthdays.\\
+                    their birthdays. \\
                 Answer:\\
-                Given the assumption $X \sim \text{Binomial}(747,.25)$, it may be approximated through a standard normal distribution, where \\
-                $ 46\% \times 747 = 343.62 $ \\
-                $ P(X \geq 343.62) = 1 - P(X < 343.62) $\\
-                $ E[X] = np = 186.75 $ \\
-                $Var(X) = np(1-p) = 186.75(.75) = 140.0625$ \\
-                $\sigma = \sqrt{Var(X)} \approx 11.8348 $ \\
+                Given the assumption $X \sim \text{Binomial}(747,.25)$, it may be approximated through a standard normal distribution, where
+                \begin{align*}
+                    46\% \times 747 &= 343.62 \\
+                    P(X \geq 343.62) &= 1 - P(X < 343.62) \\
+                    E[X] &= np = 186.75 \\
+                    Var(X) &= np(1-p) = 186.75(.75) = 140.0625\\
+                    \sigma &= \sqrt{Var(X)} \approx 11.8348
+                \end{align*}
                 Then, given that $ \frac{X - \mu}{\sigma} = Z \sim \text{normal}(0,1) $,\\ it follows that
                 $$ \frac{343.62-186.75}{11.8348} = Z \approx 13.25$$
                 Since the $Z$ value obtained is roughly 4 times larger than the largest $Z$ value on the table provided,
+                and since the cdf approaches 1 as $Z\rightarrow\infty$,
                 it can be concluded that
                 $$ P(X \geq 343.62) = 1 - P(X < 343.62) \approx 1 - 1 = \fbox{0} $$
             \item   What conclusion might you draw from your calculation in (b)? How many deaths in the 3-month period 
@@ -102,13 +119,15 @@
             What type of random variable is $M$?
             \\Answer:\\
             Given the hint to find $P(M>m)$ for a given $M\geq0$,
-            $$P(M>m) = P(Y_1 > m) \times \cdots \times P(Y_n > m) $$ 
-            $$P(Y_j > m) = 1 - P(Y_j < m) = 1 - F_Y(m) = e^{-\lambda m} $$ 
-            $$\Rightarrow P(M>m) = 1 - \prod_{i=1}^{n} e^{-\lambda_{i} m} =1 - exp\left(-m\sum_{i=1}^{n}\lambda_{i}\right)$$
+            \begin{align*}
+                P(M>m) &= P(Y_1 > m) \times \cdots \times P(Y_n > m) \\
+                P(Y_j > m) &= 1 - P(Y_j < m) = 1 - F_Y(m) = e^{-\lambda m} \\
+                \Rightarrow P(M>m) &= 1 - \prod_{i=1}^{n} e^{-\lambda_{i} m} =1 - exp\left(-m\sum_{i=1}^{n}\lambda_{i}\right)
+            \end{align*}
             Then, assigning $\sum \lambda_{i} = \lambda_{M}$ gives a cdf of,
-            $$ P(M>m) =1 - e^{-m\lambda_{M}}$$
+            $$ \fbox{$1 - e^{-m\lambda_{M}}$} $$
             with the pdf given by
-            $$F'_M(m) = f_M(m) = 1 - e^{-m\lambda_M} \frac{d}{dm} = \lambda_{M} e^{-m\lambda_{M}} $$
+            $$F'_M(m) = f_M(m) = 1 - e^{-m\lambda_M} \frac{d}{dm} =\fbox{$ \lambda_{M} e^{-m\lambda_{M}}$} $$
             resulting in M being an exponential random variable, given its cdf and pdf match the general forms of each.
     \clearpage
     \item   Suppose that an appliance is constructed in such a way that it requires that $n$ independent electronic 
@@ -127,7 +146,10 @@
                     $$ E[X] = \frac{1}{\lambda_{X}}, \lambda_{X} = \sum_{i=1}^{n} \lambda_{i} $$
                     with the median being calculated by
                     $$ F_X(t) = 1 - e^{-\lambda_X t} \Rightarrow \frac{1}{2} = 1 - e^{-\lambda_X t} $$
-                    $$ \frac{1}{2} = e^{-\lambda_X t} \Rightarrow t = -\ln\left(\frac{1}{2}\right)/\lambda_X = -\ln\left(\frac{1}{2}\right)E[X]$$
+                    $$ 
+                        \frac{1}{2} = e^{-\lambda_X t} \Rightarrow t = -\ln\left(\frac{1}{2}\right)/\lambda_X = 
+                        -\ln\left(\frac{1}{2}\right)E[X]
+                    $$
             \item   Consider the two numbers you computed in (b). What does this indicate in context about the 
                     lifespans of these devices? Which will the manufacturer of the appliance likely use in their advertising?
                     \\Answer:\\
@@ -144,10 +166,16 @@
                     F_Y(y) &= P(Y\leq y) = P(e^X \leq y) = P(X \leq \ln(y))\\
                            &= 1 - e^{-\lambda \ln(y)} = \fbox{$1 - y^{-\lambda}$}
                 \end{align*}
-            \item   Use (a) to find the pdf of $Y$. Check that your answer really is a density by showing that it integrates to 1.
+            \item   Use (a) to find the pdf of $Y$. Check that your answer really is a density by showing 
+                    that it integrates to 1.
+                \\Answer:
                 $$ F'_Y(y) = f_Y(y) = 1 - y^{-\lambda} \frac{d}{dy} = \fbox{$\lambda y^{-\lambda}$}$$
-                Then, since the smallest possible value $X$ can take is 0, then the smallest $Y$ is $e^0 = 1$, giving limits of integration of $[1,\infty)$
-                $$ \int^{\infty}_{1} \lambda y^{-\lambda -1} dy = {-y^{-\lambda}}\bigg|^{\infty}_{1} = 0 - \left(-\frac{1}{1^\lambda}\right) = \fbox{1}$$
+                Then, since the smallest possible value $X$ can take is 0, then the smallest $Y$ is $e^0 = 1$, 
+                giving limits of integration of $[1,\infty)$
+                $$ 
+                    \int^{\infty}_{1} \lambda y^{-\lambda -1} dy = 
+                    {-y^{-\lambda}}\bigg|^{\infty}_{1} = 0 - \left(-\frac{1}{1^\lambda}\right) = \fbox{1}
+                $$
             \item   Find the pdf of Y again, this time using the "shortcut" formula (the Theorem from Part 3 of the Ch 5 Notes), 
                     being sure to explain why it applies.
         \end{enumerate}
