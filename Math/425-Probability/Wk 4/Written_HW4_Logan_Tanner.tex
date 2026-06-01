@@ -1,0 +1,156 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=4,
+    columns=flexible,
+    keepspaces=true,
+    basewidth=0.5em
+}
+
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\alph*)}
+\setlist[enumerate,3]{label=\roman*.}
+
+\title{Written HW3}
+\author{
+    Logan Tanner \\ 
+    I use Neovim (BTW) \\ 
+    \\
+    Full HW repository at \\
+    \href{https://github.com/LoganCTanner/School/tree/main/Math/425-Probability}{github.com/LoganCTanner/School}
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\clearpage
+\begin{enumerate}
+
+    \item   Suppose that $ X \sim normal(\mu,\sigma^2) $. Find the following probabilities:
+        \begin{enumerate}
+
+            \item   $P\{|X - \mu | \leq \sigma\}$
+                \\Answer:\\
+                $ P\{|X - \mu | \leq \sigma\} = P\{-\sigma \leq X - \mu \leq \sigma\} $\\
+                $ = P\{-1 \leq \frac{X - \mu}{\sigma} \leq 1\} = P\{\frac{X - \mu}{\sigma} \leq 1\} - \left( 1 - P\{\frac{X - \mu}{\sigma} \leq 1\}\right)$ \\
+                $ = 2P\{\frac{X - \mu}{\sigma} \leq 1\} - 1$ \\
+                Then, by the table of values provided for a standard normal curve, \\
+                $ = 1.6826 - 1 = \fbox{0.6826}$
+            \item   $P\{|X - \mu | \leq 2\sigma\}$ \\
+                Answer:\\
+                It follows from part (a) that \\
+                $ P\{|X - \mu | \leq 2\sigma\} = 2P\{\frac{X - \mu}{\sigma} \leq 2\} - 1 = \fbox{0.9544} $
+            \item   $P\{|X - \mu | \leq 3\sigma\}$\\
+                Answer:\\
+                $ P\{|X - \mu | \leq 3\sigma\} = 2P\{\frac{X - \mu}{\sigma} \leq 3\} - 1 = \fbox{0.9974} $
+        \end{enumerate}
+    \clearpage
+    \item   Some time ago, a random sample of 747 obituaries published in Salt Lake City newspapers found that 46\% of 
+            the decedents died in the 3-month period following their birthdays.
+        \begin{enumerate}
+            \item   What percent would you expect to die in that 3-month period? What assumption(s) are you making?\\
+                Answer:\\
+                Given the assumption that deaths are evenly distributed, it would follow that 25\% of deaths would occur
+                in the 3-month period following a birthday, given that would equate to 25\% of the calendar year.
+            \item   Estimate the probability that 46\% or more of the decedents would die in the 3-month period following 
+                    their birthdays.\\
+                Answer:\\
+                Given the assumption $X \sim \text{Binomial}(747,.25)$, it may be approximated through a standard normal distribution, where \\
+                $ 46\% \times 747 = 343.62 $ \\
+                $ P(X \geq 343.62) = 1 - P(X < 343.62) $\\
+                $ E[X] = np = 186.75 $ \\
+                $Var(X) = np(1-p) = 186.75(.75) = 140.0625$ \\
+                $\sigma = \sqrt{Var(X)} \approx 11.8348 $ \\
+                Then, given that $ \frac{X - \mu}{\sigma} = Z \sim \text{normal}(0,1) $,\\ it follows that
+                $$ \frac{343.62-186.75}{11.8348} = Z \approx 13.25$$
+                Since the $Z$ value obtained is roughly 4 times larger than the largest $Z$ value on the table provided,
+                it can be concluded that
+                $$ P(X \geq 343.62) = 1 - P(X < 343.62) \approx 1 - 1 = \fbox{0} $$
+            \item   What conclusion might you draw from your calculation in (b)? How many deaths in the 3-month period 
+                    would you accept as consistent with your expectations?
+                    \\Answer:\\
+                    Conclusions may include:
+                    \begin{enumerate}
+                        \item   data collection or calculation error.
+                        \item   clustering of birthdays with some mass death event in the sampled decedent data.
+                        \item   underlying causal factor(s) in the mortality rate in the 3-month period following a birthday.
+                    \end{enumerate}
+                    In the expected even distribution case, it would be expected to have roughly 187 $\pm$ 12 deaths occur.
+        \end{enumerate}
+    \clearpage
+    \item   Suppose $Y_j$, where $1 \leq j \leq n$, are independent exponential random variables with parameters 
+            $\lambda_j$. Find the cdf and pdf for the random variable $M = \text{min}(Y_1,Y_2,\ldots,Y_n)$. 
+            What type of random variable is $M$?
+            \\Answer:\\
+            Given the hint to find $P(M>m)$ for a given $M\geq0$,
+            $$P(M>m) = P(Y_1 > m) \times \cdots \times P(Y_n > m) $$ 
+            $$P(Y_j > m) = 1 - P(Y_j < m) = 1 - F_Y(m) = e^{-\lambda m} $$ 
+            $$\Rightarrow P(M>m) = 1 - \prod_{i=1}^{n} e^{-\lambda_{i} m} =1 - exp\left(-m\sum_{i=1}^{n}\lambda_{i}\right)$$
+            Then, assigning $\sum \lambda_{i} = \lambda_{M}$ gives a cdf of,
+            $$ P(M>m) =1 - e^{-m\lambda_{M}}$$
+            with the pdf given by
+            $$F'_M(m) = f_M(m) = 1 - e^{-m\lambda_M} \frac{d}{dm} = \lambda_{M} e^{-m\lambda_{M}} $$
+            resulting in M being an exponential random variable, given its cdf and pdf match the general forms of each.
+    \clearpage
+    \item   Suppose that an appliance is constructed in such a way that it requires that $n$ independent electronic 
+            components are all functioning. Assume that the lifespan of each of the components, $T_j$, is an exponential 
+            random variable with parameter $\lambda_j$.
+        \begin{enumerate}
+            \item   Let $X$ be the random variable giving the lifespan of the appliance. Find the distribution of $X$. 
+                \\Answer:\\
+                As was obtained in question 3, lifespan $X$ would be an exponential random variable, given that the appliance 
+                will break when one of its components break (or, in other words, the minimum $T_j$), and all components 
+                $T_j$ are exponential random variables. 
+            \item   Find $E[X]$. Then, find the \textbf{median} lifespan of the appliance, that is, the time $t$ at 
+                    which half of the appliances are likely to have broken and half still working.
+                    \\Answer:\\
+                    Given X is an exponential r. v., it follows that 
+                    $$ E[X] = \frac{1}{\lambda_{X}}, \lambda_{X} = \sum_{i=1}^{n} \lambda_{i} $$
+                    with the median being calculated by
+                    $$ F_X(t) = 1 - e^{-\lambda_X t} \Rightarrow \frac{1}{2} = 1 - e^{-\lambda_X t} $$
+                    $$ \frac{1}{2} = e^{-\lambda_X t} \Rightarrow t = -\ln\left(\frac{1}{2}\right)/\lambda_X = -\ln\left(\frac{1}{2}\right)E[X]$$
+            \item   Consider the two numbers you computed in (b). What does this indicate in context about the 
+                    lifespans of these devices? Which will the manufacturer of the appliance likely use in their advertising?
+                    \\Answer:\\
+                    Given that $-\ln\left(\frac{1}{2}\right) \approx 0.693$, the average appliance will last longer 
+                    than 50\% of other such appliances. This would lead to the manufacturer likely advertising the 
+                    average lifespan of the appliance.
+        \end{enumerate}
+    \clearpage
+    \item   Let $X \sim exponential(\lambda)$, and let $Y = e^X$.
+        \begin{enumerate}
+            \item   Find the cdf of $Y$.
+                \\Answer:
+                \begin{align*}
+                    F_Y(y) &= P(Y\leq y) = P(e^X \leq y) = P(X \leq \ln(y))\\
+                           &= 1 - e^{-\lambda \ln(y)} = \fbox{$1 - y^{-\lambda}$}
+                \end{align*}
+            \item   Use (a) to find the pdf of $Y$. Check that your answer really is a density by showing that it integrates to 1.
+                $$ F'_Y(y) = f_Y(y) = 1 - y^{-\lambda} \frac{d}{dy} = \fbox{$\lambda y^{-\lambda}$}$$
+                Then, since the smallest possible value $X$ can take is 0, then the smallest $Y$ is $e^0 = 1$, giving limits of integration of $[1,\infty)$
+                $$ \int^{\infty}_{1} \lambda y^{-\lambda -1} dy = {-y^{-\lambda}}\bigg|^{\infty}_{1} = 0 - \left(-\frac{1}{1^\lambda}\right) = \fbox{1}$$
+            \item   Find the pdf of Y again, this time using the "shortcut" formula (the Theorem from Part 3 of the Ch 5 Notes), 
+                    being sure to explain why it applies.
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
