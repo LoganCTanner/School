@@ -1,0 +1,93 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=4,
+    columns=flexible,
+    keepspaces=true,
+    basewidth=0.5em
+}
+
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\alph*)}
+\setlist[enumerate,3]{label=\roman*.}
+
+\title{Written HW5}
+\author{
+    Logan Tanner \\ 
+    I use Neovim (BTW) \\ 
+    \\
+    Full HW repository at \\
+    \href{https://github.com/LoganCTanner/School/tree/main/Math/425-Probability}{github.com/LoganCTanner/School}
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\begin{enumerate}
+    \item   Suppose $X$ and $Y$ have the joint density function $f_{X,Y}(x,y) = e^{-(x+y)}$ for $x \geq 0$, $y \geq 0$. 
+            Let $W = X + Y$.
+    \begin{enumerate}
+        \item   Are $X$ and $Y$ independent? Justify.
+            \\Answer:\\
+            If $f_X(x) \cdot f_Y(y) = f_{X,Y}(x,y)$, then they are independent.
+            \begin{align*}
+                f_X(x) &= e^{-x} \int^{\infty}_{0} e^{-y} dy \\
+                       &= e^{-x} \left( -e^{-y} \rvert^{\infty}_{0} \right) \\
+                       &= e^{-x} \left( 0 - (-1) \right) \\
+                       &= e^{-x} \\
+                f_Y(y) &= e^{-y} \int^{\infty}_{0} e^{-x} dx \\
+                       &= e^{-y} \left( -e^{-x} \rvert^{\infty}_{0} \right) \\
+                       &= e^{-y} \left( 0 - (-1) \right) \\
+                       &= e^{-y} \\
+                f_X(x) \cdot f_Y(y) &= e^{-x} \cdot e^{-y} \\
+                                    &= e^{-(x+y)} \\
+                                    &= f_{X,Y}(x,y)
+            \end{align*}
+            $ \therefore f_{X,Y}(x,y) $ is independent.
+        \clearpage
+        \item   Find the cdf of $W$.
+            \\Answer:
+            \begin{align*}
+                F_{W}(w) &= \int^{w}_{0} \int^{w-x}_{0} e^{-x-y} dydx \\
+                             &= \int^{w}_{0} e^{-x} \left(-e^{-y} \rvert^{w-x}_{0} \right) dx \\
+                             &= \int^{w}_{0} e^{-x} \left(1-e^{x-w}\right) dx\\
+                             &= \int^{w}_{0} e^{-x} - e^{-x+x-w} dx \\
+                             &= \int^{w}_{0} e^{-x} - e^{-w} dx \\
+                             &= -e^{-x} - xe^{-w} \rvert^{w}_{0} \\
+                             &= -e^{-w} - we^{-w} - (-1 - 0) \\
+                             &= -e^{-w} - we^{-w} + 1
+            \end{align*}
+        \clearpage
+        \item   Use (b) to find the pdf of W.
+            \\Answer:
+            \begin{align*}
+                f_{W}(w) &= -e^{-w} - we^{-w} + 1dx \\
+                         &= e^{-w} - (e^{-w} + (-we^{-w}) \\
+                         &= e^{-w} + we^{-w} - e^{-w} \\
+                         &= we^{-w}
+            \end{align*}
+        \item   Now find the pdf of $W$ using the convolution formula (from the beginning of Chapter 6.3).
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
