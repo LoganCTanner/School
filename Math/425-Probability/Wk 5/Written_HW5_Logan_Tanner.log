@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.5.10)  9 JUN 2026 19:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.5.10)  10 JUN 2026 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -329,6 +329,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [4
 
+] [5
+
+] [6
+
+] [7] [8
+
 ] (./Written_HW5_Logan_Tanner.aux)
  ***********
 LaTeX2e <2025-11-01>
@@ -338,18 +344,18 @@ Package rerunfilecheck Info: File `Written_HW5_Logan_Tanner.out' has not changed
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11506 strings out of 469514
- 172051 string characters out of 5470072
- 765851 words of memory out of 5000000
+ 11515 strings out of 469514
+ 172106 string characters out of 5470072
+ 776851 words of memory out of 5000000
  40040 multiletter control sequences out of 15000+600000
  634364 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,79p,561b,710s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,561b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Written_HW5_Logan_Tanner.pdf (4 pages, 111119 bytes).
+Output written on Written_HW5_Logan_Tanner.pdf (8 pages, 123630 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
+ 108 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
