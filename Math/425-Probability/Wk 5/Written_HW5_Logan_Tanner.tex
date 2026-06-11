@@ -29,11 +29,7 @@
 \setlist[enumerate,2]{label=(\alph*)}
 \setlist[enumerate,3]{label=\roman*.}
 
-\title{Written HW5}
-\author{
-    Logan Tanner \\ 
-    I use Neovim (BTW) \\ 
-    \\
+\title{Written HW5} \author{ Logan Tanner \\ I use Neovim (BTW) \\ \\
     Full HW repository at \\
     \href{https://github.com/LoganCTanner/School/tree/main/Math/425-Probability}{github.com/LoganCTanner/School}
 }
@@ -98,42 +94,42 @@
         \begin{enumerate}
             \clearpage
             \item   Find the joint pmf of X and Y.
-                \\Answer:\\
-                Letting the probability of $X$ being the first faulty transistor, then 
+                \\Answer:
                 \begin{align*}
-                    P(X=1) &= \frac{2}{5} \\
-                    P(X=2 | (X=1)^C) &= \frac{2}{4}\cdot\frac{3}{5} = \frac {6}{20}\\
-                    P(X=3 | (X=2)^C \cap (X=1)^C) &= \frac{2}{3}\cdot\frac{3}{5}\cdot\frac{2}{4} = \frac{12}{60}
+                    P(Y=0 \cap X=1) &= 0 \\
+                    P(Y=0 \cap X=2) &= 0 \\
+                    P(Y=0 \cap X=3) &= \frac{3}{5}\cdot\frac{2}{4}\cdot\frac{1}{3} = \frac{1}{10} \\
+                    P(Y=1 \cap X=1) &= \frac{2}{5}\cdot\frac{1}{4} = \frac{1}{10} \\
+                    P(Y=1 \cap X=2) &= \frac{3}{5}\cdot\frac{2}{4}\cdot\frac{1}{3} = \frac{1}{10} \\
+                    P(Y=1 \cap X=3) &= \frac{3}{5}\cdot\frac{2}{4}\cdot\frac{2}{3} = \frac{1}{5} \\
+                    P(Y=2 \cap X=1) &= \frac{2}{5}\cdot\frac{3}{4}\cdot\frac{1}{3} = \frac{1}{10} \\
+                    P(Y=2 \cap X=2) &= 2\cdot\frac{3}{5}\cdot\frac{2}{4}\cdot\frac{1}{3} = \frac{1}{5}\\
+                    P(Y=2 \cap X=3) &= 0 \\
+                    P(Y=3 \cap X=1) &= \frac{2}{5}\cdot\frac{3}{4}\cdot\frac{2}{3} = \frac{1}{5} \\
+                    P(Y=3 \cap X=2) &= 0 \\
+                    P(Y=3 \cap X=3) &= 0 \\
                 \end{align*}
-                Should the first 3 transistors work the remaining 2 must 
-                be faulty. Similarly for Y being the number of tests to find the second faulty transistor, 
+                With the multiple of 2 in $X=2\cap Y=2$ coming from there being two arrangements of GDG\{GD,DG\}, where 
+                G = good and D = defective, and the fractions obtained through $\frac{\text{\# G or D}}{\text{\# Total}}$
+            \clearpage
+            \item   Find $p_{Y|X}(y|x)$ for each $x$ = 1,2,3.
                 \begin{align*}
-                    P(Y=1|X=1)  &= \frac{1}{4} \div \frac{2}{5} = \frac{5}{8} \\
-                    P(Y=1|X=2 \cap (Y=1)^C)  &= \frac{1}{3} \div \frac{2}{4} = \frac{4}{6}\\
-                    P(Y=1|X=3)  &= \frac{1}{2} \div \frac{2}{3} = \frac{3}{4} \\
-                    P(Y=1)      &= \frac{5}{8}\cdot\frac{2}{5} + \frac{4}{6}\cdot\frac{2}{4} + \frac{3}{4}\cdot\frac{2}{3} \\
-                                &= \frac{10}{40} + \frac{7}{30} + \frac{6}{12} \\
-                                &= \frac{30+28+60}{120} = \frac{118}{120}
+                    P(Y|1) &= \sum^{3}_{0} P(Y=i|1) = \frac{1}{10}+\frac{1}{10}+\frac{1}{5} = \frac{2}{5} \\
+                    P(Y|2) &= \sum^{3}_{0} P(Y=i|2) = \frac{1}{10}+\frac{1}{5} = \frac{3}{10} \\
+                    P(Y|3) &= \sum^{3}_{0} P(Y=i|3) = \frac{1}{10}+\frac{1}{5} = \frac{3}{10} \\
                 \end{align*}
-                It follows for $Y=2$ that
+            \item   Find $E[Y|X=x]$, for each of $x$ = 1,2,3.
                 \begin{align*}
-                    P(Y=2|X=1) &= \frac{1}{3}  \frac{2}{5} = \frac{5}{6}\\
-                    P(Y=2|X=2) &= \frac{1}{2} \div \frac{2}{4} = 1 \\
-                    P(Y=2) &= \frac{5}{6}\cdot\frac{2}{5} + \frac{1}{1}\cdot\frac{2}{4}\\
-                           &= \frac{r}{15} + \frac{1}{2}\\
-                           &= \frac{8}{60} + \frac{15}{60}\\
-                           &= \frac{23}{60}
+                    E[Y|X=1] &= \sum^{3}_{0} E[Y_i|X=1] = \sum^{3}_{0} Y_i \cdot P(Y_i|X=1) \\
+                             &= 0\cdot0 + 1\cdot\frac{1}{10} + 2\cdot\frac{1}{10} + 3\cdot\frac{1}{5} \\
+                             &= \frac{1}{10} + \frac{2}{10} + \frac{6}{10} = \frac{9}{10} \\
+                    E[Y|X=2] &= \sum^{3}_{0} E[Y_i|X=2] = \sum^{3}_{0} Y_i \cdot P(Y_i|X=1) \\
+                             &= 0\cdot0 + 1\cdot\frac{1}{10} + 2\cdot\frac{1}{5} + 3\cdot0 \\
+                             &= \frac{1}{10} + \frac{4}{10} = \frac{1}{2} \\
+                    E[Y|X=3] &= \sum^{3}_{0} E[Y_i|X=3] = \sum^{3}_{0} Y_i \cdot P(Y_i|X=1) \\
+                             &= 0\cdot\frac{1}{10} + 1\cdot\frac{1}{5} + 2\cdot0 + 3\cdot0 \\
+                             &= \frac{1}{5} \\
                 \end{align*}
-                With $P(Y=2|X=3)=1$ given by our deduction, that is to say that if transistor 1 works, transistor 2 is faulty,
-                and transistor 3 is good. Then either transistors 4 or 5 must be faulty, and if transistor 4 works then
-                5 must be faulty. $P(Y=3|X = i \in \{1,2,3\})$ would then be
-                \begin{align*}
-                    P(Y=3|X=1) &= \frac{1}{2} \\
-                    P(Y=3) &= \frac{1}{2}\cdot\frac{2}{5}\\
-                           &= \frac{1}{5} = \frac{12}{60}
-                \end{align*}
-                With the undefined $P(Y=3|X=3)$ not being within the scope of the problem with only 5 transistors, and a
-                similar deductive process for $P(Y=3|X=2) = 1$.
         \end{enumerate}
     \clearpage
     \item   Let $X$ and $Y$ be independent $unifrom[0,1]$ random variables.
@@ -144,28 +140,98 @@
                 it follows that the cdf of $|X-Y|$ would then be
                 \begin{align*}
                     P(|X-Y|\leq a) &= P(-a\leq X-Y \leq a)\\
-                                   &= 2P(Y \leq X + a) \\
-                                   &= 2\int^{1-a}_{0} \int^{1}_{x+a}dydx\\
-                                   &= 2\int^{1-a}_{0} 1 - x - a dx \\
-                                   &= 2\left(x -\frac{1}{2}x^2 - ax \rvert^{1-a}_{0}\right) \\
-                                   &= 2\left(x(1-a) - \frac{1}{2}x^2 \rvert^{1-a}_{0}\right) \\
-                                   &= 2\left((1-a)^2 - \frac{1}{2}(1-a)^2\right) \\
-                                   &= 2\left(1-\frac{1}{2}\right)(1-a)^2 \\
-                                   &= 1 - 2a - a^2 \\
+                                   &= 2P(X-Y \leq a) \\
+                                   &= 2P(-Y \leq a - X) \\
+                                   &= 2P(Y \geq X - a) \\
+                                   &= 2(1 - P(Y \leq X-a)) \\
+                                   &= 2\left(1 - \int^{1}_{a} \int^{x-a}_{0}dydx\right)\\
+                                   &= 2\left(1 - \int^{1}_{a} x-adx \right) \\
+                                   &= 2\left(1 - \left(\frac{1}{2}x^2 - ax \Big|^{1}_{a}\right)\right) \\
+                                   &= 2\left(1 - \left(\frac{1}{2} - a - \left(\frac{1}{2}a^2 - a^2\right)\right)\right) \\
+                                   &= 2\left(1 - \left(\frac{1}{2} - a + \frac{1}{2}a^2\right)\right)\\
+                                   &= 2\left(-\frac{1}{2}+a-\frac{1}{2}a^2\right) \\
+                                   &= -1 + 2a - a^2
                 \end{align*}
                 and the pdf is then obtained from the derivative of the cdf
                 \begin{align*}
-                    f_{|X-Y|}(a) &= (1-2a-a^2)da \\
+                    f_{|X-Y|}(a) &= (-1+2a-a^2)da \\
                                  &= \fbox{$2 - 2a$}
                 \end{align*}
             \item   Compute $E[|X-Y|]$.
                 \\Answer:\\
-                Given the pdf of $2-2a$, the expected value would then be
+                Given the pdf of $-2+2a$, the expected value would then be
                 \begin{align*}
                     E[f_{|X-Y|(a)}] &= \int^{1}_{0} a(2-2a) da\\
-                                    &= a^2 - \frac{2}{3}a^3 \rvert^{1}_{0} \\
+                                    &= a^2 - \frac{2}{3}a^3 \Big|^{1}_{0} \\
                                     &= 1 - \frac{2}{3} = \fbox{$\frac{1}{3}$}
                 \end{align*}
+        \end{enumerate}
+    \clearpage
+    \item   Consider an Elevator in a building with 10 floors above the ground floor. The number of people entering the 
+            elevator on the ground floor is a Poisson random variable with mean 5, and each person is equally likely to get off
+            at any other floor, independently of the others. What is the expected number of stops the elevator will make to
+            allow all of the passengers to get off?
+        \\Answer:\\
+        Letting $X$ = \# people on the elevator, and $Y$ = \# stops, then the expected number of stops is given by
+        $$E[Y] = \sum^{\infty}_{n=0}E[Y|X=n]\cdot P(X=n)$$
+        where $P(X=n) = e^{-5} \frac{5^n}{n!}$, and $E[Y|X=n] = \sum^{10}_{1} 1 - \left(\frac{9}{10}\right)^n = 10(1-\frac{9}{10}^n)$.
+        Then, multiplying the two and separating the sums,
+        $$\sum^{\infty}_{n=0} 10 e^{-5} \frac{5^n}{n!} - \left(\sum^{\infty}_{n=0}10\left(\frac{9}{10}\right)^n e^{-5} \frac{5^n}{n!}\right)$$
+        The first sum then sums to 10 $\times$ 1, since the sum is over the poisson which equals 1. The second sum has a similar
+        result, by rearranging to be
+        $$ \sum^{\infty}_{n=0} 10 e^{-5} \left(\frac{9\times5}{10}\right)^n \cdot \frac{1}{n!}=10e^{-5}\sum^{\infty}_{n=0}\left(\frac{9\times5}{10}\right)^n \cdot \frac{1}{n!}$$
+        Which then follows the pattern for $e^{\lambda}$, where
+        $$\sum^{\infty}_{n=0}\frac{\lambda^n}{n!}=e^{\lambda} \Rightarrow \sum^{\infty}_{n=0}\left(\frac{45}{10}\right)^n \cdot \frac{1}{n!} = e^{4.5}$$
+        Resulting in
+        $$ 10 - 10e^{4.5-5} = 10 - \frac{10}{\sqrt{e}} \approx 3.9347$$
+    \clearpage
+    \item   Suppose I wrote the lengthy description for this problem,
+        \begin{enumerate}
+            \item   What do you think might tend to happen to restaurants that have bad food and a bad ambiance?
+                    Explain why it might be more reasonable to assume that your friend was only sampling data from 
+                    part of this domain that lies on or above the line $y=5-x$, say.
+                \\Answer:\\
+                Restaurants that don't perform well will tend to go out of business, so only those that are of the highest
+                quality in at least one of tastiness or ambience will survive long enough to stay open.
+            \item   Use this updated assumption and new, triangular domain to write a joint density function for 
+                    $X$ and $Y$, the tastiness and ambiance scores respectively of a randomly chosen restaurant with
+                    at least 10 ratings on Zelp. Also find the marginal densities for $X$ and $Y$.
+                \\Answer:\\
+                Since this triangular region is uniformly distributed,
+                $$f_{X,Y}(x,y) = \frac{1}{\text{Area}} = \frac{1}{\frac{25}{2}} = \frac{2}{25} $$
+                \begin{align*}
+                    f_X(x) &= \frac{2}{25} \int_{5-x}^{5}dy = \frac{2}{25}x \\
+                    f_Y(y) &= \frac{2}{25} \int_{5-y}^{5}dx = \frac{2}{25}y
+                \end{align*}
+            \item   Find the expected tastiness score of one of these restaurants.
+                \\Answer:
+                \begin{align*}
+                    E[X] &= \int_{0}^{5}xf(x,y)dx \\ 
+                         &= \int_{0}^{5}\frac{2}{25}xdx\\
+                         &= \frac{1}{25}\left(x^2 \Big|^{5}_{0}\right) \\
+                         &= 1
+                \end{align*}
+            \clearpage
+            \item   Now, using appropriate conditional densities, find the expected tastiness scores of a restaurant with an
+                    ambiance score of 5, and a restaurant with an ambiance score of 1.
+                \\Answer:
+                \begin{align*}
+                    E[X|Y=1] &= \int_{0}^{5} x \frac{f(x,5)}{f_Y(1)}dx \\
+                             &= \int_{0}^{5} x \frac{\frac{2}{25}}{\frac{2}{25}}dx \\
+                             &= \int_{0}^{5} x dx \\
+                             &= \frac{1}{2}(25-0) = \frac{25}{2} \\
+                    E[X|Y=5] &= \int_{0}^{5} x \frac{f(x,5)}{f_Y(5)}dx \\
+                             &= \int_{0}^{5} x \frac{\frac{2}{25}}{\frac{2}{5}}dx \\
+                             &= \frac{1}{5}\int_{0}^{5} x dx \\
+                             &= \frac{1}{10}(25-0) = \frac{25}{10} \\
+                \end{align*}
+                I'm not sure if I did something wrong here, it feels like this should be at most $\frac{10}{2}$ since the
+                score caps out at 5.
+            \item   Use your work to give an alternate interpretation of your friend's findings.
+                \\Answer:\\
+                It is harder to keep a restaurant open with larger expenses, and those with lower ambiance have lower expenses,
+                so there will be a wider range of tastiness scores, whereas those with high ambiance must have high tastiness
+                so they're able to get enough customers to afford to make enough money to stay open.
         \end{enumerate}
 \end{enumerate}
 
