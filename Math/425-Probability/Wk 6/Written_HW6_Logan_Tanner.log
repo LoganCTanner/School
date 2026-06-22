@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.5.10)  11 JUN 2026 18:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.5.10)  18 JUN 2026 22:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Written_HW5_Logan_Tanner.tex
-(./Written_HW5_Logan_Tanner.tex
+**Written_HW6_Logan_Tanner.tex
+(./Written_HW6_Logan_Tanner.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -273,8 +273,8 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count317
-) (./Written_HW5_Logan_Tanner.aux)
-\openout1 = `Written_HW5_Logan_Tanner.aux'.
+) (./Written_HW6_Logan_Tanner.aux)
+\openout1 = `Written_HW6_Logan_Tanner.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
@@ -295,9 +295,9 @@ LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 Package hyperref Info: Link coloring OFF on input line 38.
- (./Written_HW5_Logan_Tanner.out) (./Written_HW5_Logan_Tanner.out)
+ (./Written_HW6_Logan_Tanner.out) (./Written_HW6_Logan_Tanner.out)
 \@outlinefile=\write3
-\openout3 = `Written_HW5_Logan_Tanner.out'.
+\openout3 = `Written_HW6_Logan_Tanner.out'.
 
 \c@lstlisting=\count318
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -325,46 +325,33 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 108.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
- [3
+] [3
 
 ] [4
 
 ] [5
 
-] [6
-
-] [7
-
-] [8
-
-] (./Written_HW5_Logan_Tanner.aux)
+] (./Written_HW6_Logan_Tanner.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-Package rerunfilecheck Info: File `Written_HW5_Logan_Tanner.out' has not changed.
+Package rerunfilecheck Info: File `Written_HW6_Logan_Tanner.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11544 strings out of 469514
- 172527 string characters out of 5470072
+ 11519 strings out of 469514
+ 172188 string characters out of 5470072
  775851 words of memory out of 5000000
- 40058 multiletter control sequences out of 15000+600000
- 634364 words of font info for 67 fonts, out of 8000000 for 9000
+ 40043 multiletter control sequences out of 15000+600000
+ 634710 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,14n,79p,561b,717s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Written_HW5_Logan_Tanner.pdf (8 pages, 144214 bytes).
+ 75i,13n,79p,561b,720s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Written_HW6_Logan_Tanner.pdf (5 pages, 134055 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
- 27 named destinations out of 1000 (max. 500000)
+ 102 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

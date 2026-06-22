@@ -1,0 +1,148 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=4,
+    columns=flexible,
+    keepspaces=true,
+    basewidth=0.5em
+}
+
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\alph*)}
+\setlist[enumerate,3]{label=\roman*.}
+
+\title{Written HW6} \author{ Logan Tanner \\ I use Neovim (BTW) \\ \\
+    Full HW repository at \\
+    \href{https://github.com/LoganCTanner/School/tree/main/Math/425-Probability}{github.com/LoganCTanner/School}
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\begin{enumerate}
+    \item   Suppose we roll a fair die $n$ times. Let $X$ be the number of 1's and $Y$ be the number of 2's that appear.
+        \begin{enumerate}
+            \item   Do you expect that Cov($X$,$Y$) will be positive, negative, or 0? Explain.
+                \\Answer:\\
+                Expect to be 0 or negative, 0 because the rolls are independent, negative because if there's a large amount of 
+                1's then 2's must be lower and vice versa.
+            \item   Now actually compute Cov($X$,$Y$).
+                \begin{align*}
+                    &E[XY] - E[X]E[Y] \\
+                    &E[X] = E[Y] = n \times \frac{1}{6} = \frac{n}{6} \\
+                    &E[X]E[Y] = \frac{n^2}{36} \\
+                    &E[XY] = E[X_1Y_1 + \cdots + X_nY_n] \\
+                    &\Rightarrow E[X_iY_i] = 0 \text{ } \forall i \in [1,n] \\
+                    & \text{(cannot be both 1 and 2 on the same roll)} \\
+                    &\Rightarrow E[X_iY_j] = \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36} \text{ s.t. $i \neq j$} \\
+                    &E[XY] = 0 + 2\cdot \binom{n}{2}\frac{1}{36} = \frac{n(n-1)}{36} \\
+                    &E[XY] - E[X]E[Y] = \frac{n^2 - n^2 - n}{36} = -\frac{n}{36}
+                \end{align*}
+            \item   Find $\rho_{X,Y}$. Is there anything surprising to you about your answer?
+                \begin{align*}
+                    &\sigma_X = \sigma_Y \\
+                    &\text{Var}(X) = \sum^n_{i=1}\text{Var}(X_i)\\
+                    &E[X_i^2]-E[X_i]^2 = \frac{1}{6} - \frac{1}{36} = \frac{5}{36} \\
+                    &\text{Var}(X) = n\cdot\frac{5}{36} \Rightarrow \sigma_X = \frac{\sqrt{5n}}{6} \\
+                    &\rho(X,Y) = \frac{\text{Cov}(X,Y)}{\sigma_X\cdot\sigma_Y}=-\frac{n}{36}\cdot\frac{36}{5n}=-\frac{1}{5}
+                \end{align*}
+                I would have assumed beforehand that it would have been something not so clean.
+        \end{enumerate}
+    \clearpage
+    \item   Recall the following scenario from Homework 3: \\
+            A restaurant offers kids' meals that come with a toy . There are 5 different types of toy available, 
+            and each is equally likely to come with a given meal. Find the expected value and standard deviation of 
+            the number of types of toy still uncollected after 7 meals have been purchased.
+        \begin{enumerate}
+            \item   Answer the question again, this time using what we have learned about covariance to find the 
+                    std. dev.
+                \begin{align*}
+                    &\text{Var}(X) = \text{Cov}(X,X) = \text{Cov}(\sum^{5}_{i=1}X_i,\sum_{j=1}^{5}X_j\\
+                    &\text{Cov}(\sum^{5}_{i=1}X_i,\sum_{j=1}^{5}X_j)=\sum^{5}_{i=1}\sum_{j=1}^{5}\left(E[X_iX_j]-E[X_i]E[X_j]\right)\\
+                    &\text{For all $i\neq j$:}\\
+                    &E[X_iX_j]=\left(\frac{3}{5}\right)^7 \\
+                    &E[X_i]=E[X_j]=\left(\frac{3}{5}\right)^7\\
+                    &\left(\frac{3}{5}\right)^7-\frac{16^7}{25^7}=\frac{15^7-16^7}{25^7}\\
+                    &\text{For all $i=j$:}\\
+                    &E[X_i^2]-E[X_i]^2 = \left(\frac{4}{5}\right)^7-\left(\frac{16}{25}\right)^7 = \frac{20^7-16^7}{25^7}\\
+                    &\text{Cov}(\sum^{5}_{i=1}X_i,\sum_{j=1}^{5}X_j)=\frac{20^7-16^7}{25^7}+\frac{15^7-16^7}{25^7}\\
+                    &\sigma_X=\sqrt{\frac{20^7-16^7}{25^7}+\frac{15^7-16^7}{25^7}}
+                \end{align*}
+            \item   Compare your work in (a) with the posted solution to Homework 3 Problem 4.
+                \\Answer:\\
+                Told to not complete since answer wasn't posted.
+        \end{enumerate}
+    \clearpage
+    \item   Suppose we roll a fair die twice, and let $X$ be the number of 1's and $Y$ be the number of 2's that appear;
+            i.e., we are returning to the situation in Problem 1 but fixing $n=2$.
+        \begin{enumerate}
+            \item   What is $M_X(t)$, the mgf of $X$? What is $M_Y(t)$? You may use a result from class as long as you
+                    explain why it applies.
+                \\Answer:
+                \begin{align*}
+                    M_X(t) &= E[e^{Xt}]=E[e^{0t}]+E[e^{1t}]+E[e^{2t}]\\
+                           &= e^0P(X=0) + e^t P(X=1) + e^{2t}P(X=2)\\
+                           &= \frac{25}{36} + e^t\frac{10}{36} + e^{2t}\frac{1}{36} \\
+                           &\text{Then, since $P(X=i) = P(Y=i)$}\\
+                    M_Y(t) &= \frac{25}{36} + e^t\frac{10}{36} + e^{2t}\frac{1}{36}
+                \end{align*}
+            \item   Find $M_{X,Y}(t,u)$, the joint mgf of $X$ and $Y$.
+                \\Answer:
+                $$
+                \begin{bmatrix}
+                    P(X=0\cap Y=0)& P(X=0\cap Y=1)& P(X=0\cap Y=2)\\
+                    P(X=1\cap Y=0)& P(X=1\cap Y=1)\\
+                    P(X=2\cap Y=0)\\
+                \end{bmatrix}
+                $$
+                $$=$$
+                $$
+                \begin{bmatrix}
+                    \frac{16}{36}&\frac{8}{36}&\frac{1}{36}\\
+                    \frac{8}{36} & \frac{2}{36} \\
+                    \frac{1}{36}
+                \end{bmatrix}
+                $$
+                $\Rightarrow\frac{16}{36} + e^u\frac{8}{36}+e^{2u}\frac{1}{36}+e^t\frac{8}{36}+e^{t+u}\frac{2}{36}+e^{2t}\frac{1}{36}$
+            \item   Check that substituting $t=0$ and $u=0$ respectively into $M_{X,Y}(t,u)$ results in the 
+                    marginal mgfs of $X$ and $Y$.
+                \\Answer:
+                $$M_{X,Y}(t,0)=\frac{16}{36}+\frac{8}{36}+\frac{1}{36}+e^t\frac{10}{36}+e^{2t}\frac{1}{36}=\frac{25}{36}+e^t\frac{10}{36}+e^{2t}\frac{1}{36}$$
+                $$M_{X,Y}(0,u)=\frac{16}{36}+\frac{8}{36}+\frac{1}{36}+e^u\frac{10}{36}+e^{2u}\frac{1}{36}=\frac{25}{36}+e^u\frac{10}{36}+e^{2u}\frac{1}{36}$$
+            \item   Show that, for \textit{any} joint mgf of two variables, $\frac{\partial^2 M_{X,Y}(t,u)}{\partial t \partial u}
+                    \Big|_{t=0,u=0} = E[XY]$.
+                $$\frac{\partial^2 M_{X,Y}(t,u)}{\partial t\partial u} = E[\frac{\partial}{\partial u} Xe^{Xt+Yu}]= E[XYe^{Xt+Yu}]$$
+                $$E[XYe^{0t+0u}] = E[XY]$$
+            \clearpage
+            \item   Use this formula to (re)compute Cov($X$,$Y$). Verify that your answer matches 1(b).
+                \begin{align*}
+                    \text{Cov}(X,Y)&=\frac{\partial^2 M_{X,Y}(t,u)}{\partial t\partial u}-\frac{\partial M_{X,Y}(t,0)}{\partial t}\frac{\partial M_{X,Y}(0,u)}{\partial u}\\
+                                   &= \frac{2}{36}e^{0+0} - \left(\frac{10}{36}e^0 + 2\frac{1}{36}e^0\right)\left(\frac{10}{36}e^0 + 2\frac{1}{36}e^0\right) \\
+                                   &= \frac{2}{36} - \left(\frac{12}{36}\right)^2 \\
+                                   &= \frac{2}{36} - \frac{1}{9} = \frac{2}{36} - \frac{4}{36} \\
+                                   &= -\frac{2}{36} = -\frac{n}{36}
+                \end{align*}
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
